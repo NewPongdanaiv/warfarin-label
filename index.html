@@ -528,6 +528,182 @@
     .container { grid-template-columns: 1fr; }
     .sticker-panel { position: static; }
   }
+
+  /* ===== PATIENT CARD (rendered in popup window, CSS used there too) ===== */
+  #patientCardArea { display: none; }
+
+  /* patient card styles */
+  .pc-wrap {
+    font-family: 'Sarabun', sans-serif;
+    color: #111;
+    background: #fff;
+    width: 100%;
+    padding: 0;
+  }
+  .pc-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 3px solid #059669;
+    padding-bottom: 10px;
+    margin-bottom: 14px;
+  }
+  .pc-header-left { display: flex; align-items: center; gap: 12px; }
+  .pc-hosp-logo {
+    width: 50px; height: 50px;
+    background: linear-gradient(135deg,#059669,#10B981);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px; flex-shrink: 0;
+  }
+  .pc-hosp-name { font-size: 13pt; font-weight: 800; color: #059669; line-height: 1.2; }
+  .pc-hosp-sub  { font-size: 9.5pt; color: #555; }
+  .pc-title     { font-size: 17pt; font-weight: 900; color: #059669; text-align: right; line-height: 1.1; }
+  .pc-title-sub { font-size: 9.5pt; color: #777; text-align: right; }
+
+  .pc-patient-box {
+    background: #F0FDF4;
+    border: 1.5px solid #6EE7B7;
+    border-radius: 10px;
+    padding: 10px 14px;
+    margin-bottom: 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px 20px;
+  }
+  .pc-field { display: flex; gap: 6px; align-items: baseline; flex-wrap: wrap; }
+  .pc-field-lbl { font-size: 9.5pt; color: #555; white-space: nowrap; }
+  .pc-field-val { font-size: 12pt; font-weight: 800; color: #111; }
+
+  .pc-inr-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+    align-items: stretch;
+  }
+  .pc-inr-box {
+    flex: 1;
+    background: linear-gradient(135deg,#059669,#10B981);
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px 14px;
+    text-align: center;
+  }
+  .pc-inr-label { font-size: 10pt; opacity: .85; margin-bottom: 2px; }
+  .pc-inr-value { font-size: 34pt; font-weight: 900; line-height: 1; }
+  .pc-inr-unit  { font-size: 9.5pt; opacity: .8; }
+  .pc-appt-box {
+    flex: 2;
+    border: 2px solid #059669;
+    border-radius: 10px;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .pc-appt-label { font-size: 9.5pt; color: #059669; font-weight: 700; }
+  .pc-appt-date  { font-size: 18pt; font-weight: 900; color: #111; line-height: 1.2; }
+  .pc-appt-day   { font-size: 11pt; color: #059669; }
+  .pc-mg-box {
+    flex: 1.1;
+    background: #FFF7ED;
+    border: 1.5px solid #FCD34D;
+    border-radius: 10px;
+    padding: 10px 12px;
+    text-align: center;
+  }
+  .pc-mg-label { font-size: 9.5pt; color: #92400E; }
+  .pc-mg-value { font-size: 18pt; font-weight: 900; color: #92400E; line-height: 1.1; }
+
+  .pc-section-title {
+    font-size: 11pt;
+    font-weight: 800;
+    color: #059669;
+    border-left: 4px solid #059669;
+    padding-left: 8px;
+    margin-bottom: 8px;
+    margin-top: 4px;
+  }
+
+  /* Weekly schedule table */
+  .pc-week-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 12px;
+    table-layout: fixed;
+  }
+  .pc-week-table th {
+    background: #059669;
+    color: #fff;
+    text-align: center;
+    padding: 7px 3px;
+    font-size: 12pt;
+    font-weight: 700;
+    border: 1px solid #047857;
+  }
+  .pc-week-table td {
+    border: 1px solid #D1FAE5;
+    text-align: center;
+    vertical-align: middle;
+    padding: 6px 3px;
+    background: #fff;
+    min-height: 60px;
+  }
+  .pc-week-table tbody tr:nth-child(even) td { background: #F9FFFE; }
+
+  .pc-pill-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 3px 2px;
+  }
+  .pc-dose-label { font-size: 10pt; font-weight: 700; color: #111; }
+  .pc-rest-cell { background: #F3F4F6 !important; }
+
+  /* pill count summary */
+  .pc-count-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+  .pc-count-box {
+    flex: 1;
+    min-width: 80px;
+    border-radius: 10px;
+    padding: 10px 10px;
+    text-align: center;
+    border: 2px solid #ddd;
+  }
+  .pc-count-box.orange { background: #FFF7ED; border-color: #FED7AA; }
+  .pc-count-box.blue   { background: #EFF6FF; border-color: #BFDBFE; }
+  .pc-count-box.pink   { background: #FDF2F8; border-color: #FBCFE8; }
+  .pc-count-desc { font-size: 9.5pt; color: #555; margin-bottom: 2px; }
+  .pc-count-num  { font-size: 24pt; font-weight: 900; line-height: 1; }
+  .pc-count-unit { font-size: 9.5pt; color: #555; }
+  .pc-count-num.orange { color: #C2410C; }
+  .pc-count-num.blue   { color: #1D4ED8; }
+  .pc-count-num.pink   { color: #BE185D; }
+
+  .pc-note-box {
+    background: #FFFBEB;
+    border: 1.5px solid #FCD34D;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 10pt;
+    color: #78350F;
+    margin-bottom: 10px;
+    line-height: 1.7;
+  }
+  .pc-footer {
+    text-align: center;
+    font-size: 8.5pt;
+    color: #aaa;
+    border-top: 1px dashed #ccc;
+    padding-top: 6px;
+    margin-top: 8px;
+  }
 </style>
 <script>
 // ── INLINE PWA MANIFEST ──
@@ -735,10 +911,11 @@ window.addEventListener('appinstalled', function() {
   </div>
 </div>
 
-<div style="display:grid;grid-template-columns:1fr auto;gap:10px;margin-bottom:0">
+<div style="display:grid;grid-template-columns:1fr auto;gap:10px;margin-bottom:10px">
   <button class="print-btn" onclick="doPrint()" style="margin-bottom:0">🖨️ พิมพ์สติกเกอร์</button>
   <button class="print-btn" onclick="doPrintA4Test()" style="margin-bottom:0;background:#374151;font-size:13px;padding:13px 14px">📄 ทดสอบ A4</button>
 </div>
+<button class="print-btn" onclick="doPrintPatientCard()" style="margin-bottom:0;background:linear-gradient(135deg,#059669,#10B981);font-size:15px;padding:14px;width:100%">📋 พิมพ์ตารางสรุปผู้ป่วย</button>
   </div>
 
   <!-- RIGHT PREVIEW -->
@@ -754,12 +931,14 @@ window.addEventListener('appinstalled', function() {
   </div>
 </div>
 
-<!-- HIDDEN PRINT AREA -->
+<!-- HIDDEN PRINT AREA: Sticker -->
 <div id="printArea">
-  <!-- header bar placeholder (hidden in screen, shown in print as reference) -->
-  
   <div id="stickerPrint"></div>
-  
+</div>
+
+<!-- HIDDEN PRINT AREA: Patient Card -->
+<div id="patientCardArea">
+  <div id="patientCardContent"></div>
 </div>
 
 <script>
@@ -1326,6 +1505,311 @@ function doPrintA4Test() {
       document.body.className = prev;
     }, 500);
   }, 100);
+}
+
+// ============ PATIENT CARD ============
+function pillSVGLarge(colorId, fraction) {
+  var R = 18;
+  var S = R * 2 + 4;
+  var cx = R + 2, cy = R + 2;
+  var fills   = { orange: '#FED7AA', blue: '#BFDBFE', pink: '#FBCFE8' };
+  var strokes = { orange: '#C2410C', blue: '#1D4ED8', pink: '#BE185D' };
+  var fill   = fills[colorId]   || '#ddd';
+  var stroke = strokes[colorId] || '#555';
+
+  var svg = '<svg width="'+S+'" height="'+S+'" viewBox="0 0 '+S+' '+S+'" xmlns="http://www.w3.org/2000/svg">';
+
+  if(fraction >= 1) {
+    svg += '<circle cx="'+cx+'" cy="'+cy+'" r="'+R+'" fill="'+fill+'" stroke="'+stroke+'" stroke-width="2"/>';
+    svg += '<line x1="'+(cx-R*0.65)+'" y1="'+cy+'" x2="'+(cx+R*0.65)+'" y2="'+cy+'" stroke="'+stroke+'" stroke-width="1.5" stroke-dasharray="3,2"/>';
+  } else {
+    svg += '<circle cx="'+cx+'" cy="'+cy+'" r="'+R+'" fill="#eee" stroke="'+stroke+'" stroke-width="2" stroke-dasharray="4,2"/>';
+    var startAngle = -Math.PI / 2;
+    var endAngle   = startAngle + (2 * Math.PI * fraction);
+    var x1 = cx + R * Math.cos(startAngle);
+    var y1 = cy + R * Math.sin(startAngle);
+    var x2 = cx + R * Math.cos(endAngle);
+    var y2 = cy + R * Math.sin(endAngle);
+    var largeArc = fraction > 0.5 ? 1 : 0;
+    svg += '<path d="M '+cx+' '+cy+' L '+x1.toFixed(2)+' '+y1.toFixed(2)+' A '+R+' '+R+' 0 '+largeArc+' 1 '+x2.toFixed(2)+' '+y2.toFixed(2)+' Z" fill="'+fill+'" stroke="'+stroke+'" stroke-width="2"/>';
+    if(fraction === 0.5) {
+      svg += '<line x1="'+cx+'" y1="'+(cy-R)+'" x2="'+cx+'" y2="'+(cy+R)+'" stroke="'+stroke+'" stroke-width="1.5"/>';
+    } else if(fraction === 0.25) {
+      svg += '<line x1="'+cx+'" y1="'+(cy-R)+'" x2="'+cx+'" y2="'+(cy+R)+'" stroke="'+stroke+'" stroke-width="1.5"/>';
+      svg += '<line x1="'+(cx-R)+'" y1="'+cy+'" x2="'+(cx+R)+'" y2="'+cy+'" stroke="'+stroke+'" stroke-width="1.5"/>';
+    } else if(fraction === 0.75) {
+      svg += '<line x1="'+(cx-R)+'" y1="'+cy+'" x2="'+(cx+R)+'" y2="'+cy+'" stroke="'+stroke+'" stroke-width="1.5"/>';
+      svg += '<line x1="'+cx+'" y1="'+(cy-R)+'" x2="'+cx+'" y2="'+(cy+R)+'" stroke="'+stroke+'" stroke-width="1.5"/>';
+    }
+  }
+  svg += '</svg>';
+  return svg;
+}
+
+function buildPatientCardHTML() {
+  var drugs = collectData();
+  var name  = escHtml(document.getElementById('patientName').value.trim()) || '-';
+  var hn    = escHtml(document.getElementById('hn').value.trim()) || '-';
+  var inr   = document.getElementById('inrValue').value.trim() || '-';
+  var apptDaysVal = document.getElementById('apptDays').value;
+  var apptDateVal = document.getElementById('apptDate').value;
+  var printDateVal = document.getElementById('printDate').value;
+  var apptDateTH  = formatDateTH(apptDateVal);
+  var apptDayName = apptDateVal ? thaiDayName(apptDateVal) : '';
+  var printDateTH = formatDateTH(printDateVal);
+  var calc = drugs.length ? calculate(drugs) : null;
+  var mgWeek = calc ? calc.totalMgWeek.toFixed(2) : '-';
+
+  // Build weekly schedule columns (drug chart)
+  // For each day 0-6, collect all drug rows that apply
+  var dayDrugs = [[],[],[],[],[],[],[]]; // index 0=จ ... 6=อา
+  drugs.forEach(function(d) {
+    d.days.forEach(function(di) {
+      dayDrugs[di].push(d);
+    });
+  });
+
+  var dayHeaders = ['จันทร์','อังคาร','พุธ','พฤหัส','ศุกร์','เสาร์','อาทิตย์'];
+  var dayShort   = ['จ','อ','พ','พฤ','ศ','ส','อา'];
+
+  // Build table header
+  var thHtml = dayHeaders.map(function(d,i) {
+    return '<th>'+d+'<br><span style="font-size:9pt;opacity:.7">'+dayShort[i]+'</span></th>';
+  }).join('');
+
+  // Calculate max rows needed per column
+  var maxRows = 1;
+  for(var di=0; di<7; di++) {
+    if(dayDrugs[di].length > maxRows) maxRows = dayDrugs[di].length;
+  }
+
+  // Build table row(s)
+  var tbodyHtml = '';
+  for(var ri=0; ri<maxRows; ri++) {
+    tbodyHtml += '<tr>';
+    for(var di=0; di<7; di++) {
+      var d = dayDrugs[di][ri];
+      if(!d) {
+        if(ri === 0 && dayDrugs[di].length === 0) {
+          // empty day
+          tbodyHtml += '<td class="pc-rest-cell"><span style="font-size:10pt;color:#bbb">—</span></td>';
+        } else {
+          tbodyHtml += '<td></td>';
+        }
+      } else {
+        var cfg = DRUG_COLORS.find(function(c){ return c.id === d.color; });
+        var colorClass = d.color === 'orange' ? 'color-label-o' : d.color === 'blue' ? 'color-label-b' : 'color-label-p';
+        var frac = d.dose;
+        if(frac > 1) frac = 1; // cap SVG at 1 pill for fractional display
+        // For doses > 1, show multiple pills
+        var pillsHtml = '';
+        var wholePills = Math.floor(d.dose);
+        var fracPart   = d.dose - wholePills;
+        for(var p=0; p<wholePills; p++) {
+          pillsHtml += pillSVGLarge(d.color, 1);
+        }
+        if(fracPart > 0.01) {
+          pillsHtml += pillSVGLarge(d.color, fracPart);
+        }
+        var doseText = formatDose(d.dose) + ' เม็ด';
+        var colorLabel = cfg ? cfg.colorText + ' ' + cfg.mg + 'mg' : '';
+        tbodyHtml += '<td>' +
+          '<div class="pc-pill-cell">' +
+            '<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:2px;">' + pillsHtml + '</div>' +
+            '<div class="pc-dose-label '+colorClass+'">' + doseText + '</div>' +
+            '<div style="font-size:8.5pt;color:#888;">' + colorLabel + '</div>' +
+          '</div>' +
+        '</td>';
+      }
+    }
+    tbodyHtml += '</tr>';
+  }
+
+  // Build pill count summary
+  var countHtml = '';
+  if(calc && calc.weeks > 0) {
+    // Per drug row breakdown
+    var countItems = [];
+    drugs.forEach(function(d) {
+      var perWeek = d.dose * d.days.length;
+      var exact   = calc.weeks * perWeek;
+      var rounded = exact > 0 ? roundTo5(exact) : 0;
+      if(rounded <= 0) return;
+      var cfg = DRUG_COLORS.find(function(c){ return c.id === d.color; });
+      var daysLabel = makeDaysLabel(d.days, false);
+      countItems.push({
+        color: d.color,
+        mg: cfg ? cfg.mg : '',
+        colorText: cfg ? cfg.colorText : '',
+        dose: formatDose(d.dose),
+        daysLabel: daysLabel,
+        rounded: rounded
+      });
+    });
+
+    countHtml = '<div class="pc-section-title">💊 จำนวนยาที่ได้รับ ('+apptDaysVal+' วัน)</div>' +
+      '<div class="pc-count-row">';
+    countItems.forEach(function(item) {
+      countHtml +=
+        '<div class="pc-count-box '+item.color+'">' +
+          '<div class="pc-count-desc"><strong>'+item.colorText+' ('+item.mg+' mg)</strong><br>'+item.dose+' เม็ด — '+item.daysLabel+'</div>' +
+          '<div class="pc-count-num '+item.color+'">'+item.rounded+'</div>' +
+          '<div class="pc-count-unit">เม็ด</div>' +
+        '</div>';
+    });
+    countHtml += '</div>';
+  }
+
+  var html = '<div class="pc-wrap">' +
+
+    // Header
+    '<div class="pc-header">' +
+      '<div class="pc-header-left">' +
+        '<div class="pc-hosp-logo">🏥</div>' +
+        '<div>' +
+          '<div class="pc-hosp-name">โรงพยาบาลเขวาสินรินทร์</div>' +
+          '<div class="pc-hosp-sub">กลุ่มงานเภสัชกรรม · โทร 044-582400</div>' +
+        '</div>' +
+      '</div>' +
+      '<div>' +
+        '<div class="pc-title">ตารางการกินยา Warfarin</div>' +
+        '<div class="pc-title-sub">พิมพ์: '+printDateTH+'</div>' +
+      '</div>' +
+    '</div>' +
+
+    // Patient info
+    '<div class="pc-patient-box">' +
+      '<div class="pc-field"><span class="pc-field-lbl">ชื่อ–สกุล:</span><span class="pc-field-val">'+name+'</span></div>' +
+      '<div class="pc-field"><span class="pc-field-lbl">วันที่พิมพ์:</span><span class="pc-field-val">'+printDateTH+'</span></div>' +
+      '<div class="pc-field"><span class="pc-field-lbl">HN:</span><span class="pc-field-val">'+hn+'</span></div>' +
+      '<div class="pc-field"><span class="pc-field-lbl">ยา Warfarin</span></div>' +
+    '</div>' +
+
+    // INR / Appt / mg row
+    '<div class="pc-inr-row">' +
+      '<div class="pc-inr-box">' +
+        '<div class="pc-inr-label">ค่า INR ล่าสุด</div>' +
+        '<div class="pc-inr-value">'+inr+'</div>' +
+        '<div class="pc-inr-unit">(ค่าปกติ 2.0 – 3.0)</div>' +
+      '</div>' +
+      '<div class="pc-appt-box">' +
+        '<div class="pc-appt-label">📅 วันนัดครั้งต่อไป</div>' +
+        (apptDateTH ?
+          '<div class="pc-appt-date">'+apptDateTH+'</div>' +
+          '<div class="pc-appt-day">วัน'+apptDayName+' — อีก '+apptDaysVal+' วัน</div>'
+        : '<div class="pc-appt-date" style="color:#bbb">ไม่ได้ระบุ</div>') +
+      '</div>' +
+      '<div class="pc-mg-box">' +
+        '<div class="pc-mg-label">ขนาดยารวม/สัปดาห์</div>' +
+        '<div class="pc-mg-value">'+mgWeek+'</div>' +
+        '<div class="pc-mg-label">mg/week</div>' +
+      '</div>' +
+    '</div>' +
+
+    // Weekly table
+    (drugs.length ?
+      '<div class="pc-section-title">📅 ตารางการกินยารายสัปดาห์</div>' +
+      '<table class="pc-week-table">' +
+        '<thead><tr>' + thHtml + '</tr></thead>' +
+        '<tbody>' + tbodyHtml + '</tbody>' +
+      '</table>'
+    : '<div style="color:#aaa;text-align:center;padding:20px;">ไม่มีข้อมูลยา</div>') +
+
+    // Pill count
+    countHtml +
+
+    // Note box
+    '<div class="pc-note-box">' +
+      '<strong>⚠️ คำแนะนำสำคัญ:</strong><br>' +
+      '• <strong>กินยาตรงเวลา</strong> ทุกวัน ห้ามหยุดยาเองโดยไม่ปรึกษาแพทย์หรือเภสัชกร<br>' +
+      '• หากลืมกินยา ให้กินทันทีที่นึกได้ <strong>ถ้าใกล้เวลากินยามื้อต่อไปให้ข้ามไป</strong> ห้ามกินเพิ่มเป็น 2 เท่า<br>' +
+      '• มีเลือดออกผิดปกติ เช่น จ้ำเลือด ปัสสาวะสีเข้ม ถ่ายดำ → <strong>รีบมาพบแพทย์ทันที</strong>' +
+    '</div>' +
+
+    '<div class="pc-footer">Warfarin Label System · โรงพยาบาลเขวาสินรินทร์ · พิมพ์: '+printDateTH+'</div>' +
+
+  '</div>';
+
+  return html;
+}
+
+var PATIENT_CARD_CSS = [
+  '*{box-sizing:border-box;margin:0;padding:0;}',
+  'body{font-family:"Sarabun",Sarabun,sans-serif;background:#fff;color:#111;padding:10mm 12mm;}',
+  '.pc-wrap{font-family:"Sarabun",Sarabun,sans-serif;color:#111;background:#fff;width:100%;padding:0;}',
+  '.pc-header{display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid #059669;padding-bottom:10px;margin-bottom:14px;}',
+  '.pc-header-left{display:flex;align-items:center;gap:12px;}',
+  '.pc-hosp-logo{width:50px;height:50px;background:linear-gradient(135deg,#059669,#10B981);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0;}',
+  '.pc-hosp-name{font-size:13pt;font-weight:800;color:#059669;line-height:1.2;}',
+  '.pc-hosp-sub{font-size:9.5pt;color:#555;}',
+  '.pc-title{font-size:17pt;font-weight:900;color:#059669;text-align:right;line-height:1.1;}',
+  '.pc-title-sub{font-size:9.5pt;color:#777;text-align:right;}',
+  '.pc-patient-box{background:#F0FDF4;border:1.5px solid #6EE7B7;border-radius:10px;padding:10px 14px;margin-bottom:12px;display:grid;grid-template-columns:1fr 1fr;gap:3px 20px;}',
+  '.pc-field{display:flex;gap:6px;align-items:baseline;flex-wrap:wrap;}',
+  '.pc-field-lbl{font-size:9.5pt;color:#555;white-space:nowrap;}',
+  '.pc-field-val{font-size:12pt;font-weight:800;color:#111;}',
+  '.pc-inr-row{display:flex;gap:10px;margin-bottom:12px;align-items:stretch;}',
+  '.pc-inr-box{flex:1;background:linear-gradient(135deg,#059669,#10B981);color:#fff;border-radius:10px;padding:10px 14px;text-align:center;}',
+  '.pc-inr-label{font-size:10pt;opacity:.85;margin-bottom:2px;}',
+  '.pc-inr-value{font-size:34pt;font-weight:900;line-height:1;}',
+  '.pc-inr-unit{font-size:9.5pt;opacity:.8;}',
+  '.pc-appt-box{flex:2;border:2px solid #059669;border-radius:10px;padding:10px 14px;display:flex;flex-direction:column;justify-content:center;}',
+  '.pc-appt-label{font-size:9.5pt;color:#059669;font-weight:700;}',
+  '.pc-appt-date{font-size:18pt;font-weight:900;color:#111;line-height:1.2;}',
+  '.pc-appt-day{font-size:11pt;color:#059669;}',
+  '.pc-mg-box{flex:1.1;background:#FFF7ED;border:1.5px solid #FCD34D;border-radius:10px;padding:10px 12px;text-align:center;}',
+  '.pc-mg-label{font-size:9.5pt;color:#92400E;}',
+  '.pc-mg-value{font-size:18pt;font-weight:900;color:#92400E;line-height:1.1;}',
+  '.pc-section-title{font-size:11pt;font-weight:800;color:#059669;border-left:4px solid #059669;padding-left:8px;margin-bottom:8px;margin-top:4px;}',
+  '.pc-week-table{width:100%;border-collapse:collapse;margin-bottom:12px;table-layout:fixed;}',
+  '.pc-week-table th{background:#059669;color:#fff;text-align:center;padding:7px 3px;font-size:12pt;font-weight:700;border:1px solid #047857;}',
+  '.pc-week-table td{border:1px solid #D1FAE5;text-align:center;vertical-align:middle;padding:6px 3px;background:#fff;}',
+  '.pc-week-table tbody tr:nth-child(even) td{background:#F9FFFE;}',
+  '.pc-pill-cell{display:flex;flex-direction:column;align-items:center;gap:2px;padding:3px 2px;}',
+  '.pc-dose-label{font-size:10pt;font-weight:700;color:#111;}',
+  '.pc-rest-cell{background:#F3F4F6!important;}',
+  '.color-label-o{color:#9A3412;font-weight:700;}',
+  '.color-label-b{color:#1E40AF;font-weight:700;}',
+  '.color-label-p{color:#9D174D;font-weight:700;}',
+  '.pc-count-row{display:flex;gap:10px;margin-bottom:12px;flex-wrap:wrap;}',
+  '.pc-count-box{flex:1;min-width:80px;border-radius:10px;padding:10px;text-align:center;border:2px solid #ddd;}',
+  '.pc-count-box.orange{background:#FFF7ED;border-color:#FED7AA;}',
+  '.pc-count-box.blue{background:#EFF6FF;border-color:#BFDBFE;}',
+  '.pc-count-box.pink{background:#FDF2F8;border-color:#FBCFE8;}',
+  '.pc-count-desc{font-size:9.5pt;color:#555;margin-bottom:2px;}',
+  '.pc-count-num{font-size:24pt;font-weight:900;line-height:1;}',
+  '.pc-count-unit{font-size:9.5pt;color:#555;}',
+  '.pc-count-num.orange{color:#C2410C;}',
+  '.pc-count-num.blue{color:#1D4ED8;}',
+  '.pc-count-num.pink{color:#BE185D;}',
+  '.pc-note-box{background:#FFFBEB;border:1.5px solid #FCD34D;border-radius:8px;padding:8px 12px;font-size:10pt;color:#78350F;margin-bottom:10px;line-height:1.7;}',
+  '.pc-footer{text-align:center;font-size:8.5pt;color:#aaa;border-top:1px dashed #ccc;padding-top:6px;margin-top:8px;}',
+  '@media print{body{padding:0;}@page{size:A4 portrait;margin:10mm 12mm;}}'
+].join('\n');
+
+function doPrintPatientCard() {
+  var cardBody = buildPatientCardHTML();
+  var fontUrl = 'https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900&display=swap';
+
+  var win = window.open('', '_blank', 'width=820,height=1160');
+  if(!win) {
+    alert('กรุณาอนุญาต Popup เพื่อพิมพ์ตารางผู้ป่วย\n(คลิก "Allow popups" หรือ icon popup ใน address bar แล้วลองใหม่)');
+    return;
+  }
+
+  win.document.write(
+    '<!DOCTYPE html><html lang="th"><head>' +
+    '<meta charset="UTF-8">' +
+    '<title>ตารางการกินยา Warfarin</title>' +
+    '<link rel="preconnect" href="https://fonts.googleapis.com">' +
+    '<link rel="stylesheet" href="'+fontUrl+'">' +
+    '<style>' + PATIENT_CARD_CSS + '</style>' +
+    '</head><body>' +
+    cardBody +
+    '<script>window.onload=function(){setTimeout(function(){window.print();setTimeout(function(){window.close();},800);},600);};<\/script>' +
+    '</body></html>'
+  );
+  win.document.close();
 }
 </script>
 </body>
