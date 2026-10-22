@@ -1,0 +1,10 @@
+warfarin_sticker.html
+.cache/
+.config/
+.npm-global/
+.npm/
+.pki/
+.ssh/
+.gitconfig
+.wget-hsts
+.claude/
