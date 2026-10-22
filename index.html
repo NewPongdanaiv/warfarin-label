@@ -1226,12 +1226,14 @@ function pillSVG(colorId, fraction) {
   return svg;
 }
 
+// ============ ESCAPE HTML (global) ============
+function escHtml(s) {
+  return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
 // ============ BUILD STICKER HTML ============
 function buildStickerHTML(forPrint) {
-  function escHtml(s) {
-    return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-  }
-  var name    = escHtml(document.getElementById('patientName').value.trim()) || '-';
+  var name   = escHtml(document.getElementById('patientName').value.trim()) || '-';
   var hn      = escHtml(document.getElementById('hn').value.trim()) || '-';
   var inr     = document.getElementById('inrValue').value || '-';
   var appt    = document.getElementById('apptDays').value || '-';
