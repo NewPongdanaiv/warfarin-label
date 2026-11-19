@@ -364,7 +364,11 @@
     border-bottom: 1px dashed #aaa;
   }
   .sticker-patient .lbl { color: #666; white-space: nowrap; }
-  .sticker-patient .val { font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .sticker-patient .val { font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+  /* ชื่อ-สกุล: ห้ามตัด ให้ขึ้นบรรทัดใหม่แทน */
+  .sticker-patient .val.val-name { white-space: normal; overflow: visible; text-overflow: clip; overflow-wrap: anywhere; word-break: break-word; line-height: 1.15; }
+  .sticker-patient .val.val-name.long { font-size: 7pt; }
+  .sticker-patient .val.val-name .nw { white-space: nowrap; }
 
   /* INR box */
   .sticker-inr {
@@ -1262,6 +1266,7 @@ function escHtml(s) {
 // ============ BUILD STICKER HTML ============
 function buildStickerHTML(forPrint) {
   var name   = escHtml(document.getElementById('patientName').value.trim()) || '-';
+  var rawNameLen = document.getElementById('patientName').value.trim().length;
   var hn      = escHtml(document.getElementById('hn').value.trim()) || '-';
   var inr     = document.getElementById('inrValue').value || '-';
   var appt    = document.getElementById('apptDays').value || '-';
@@ -1405,7 +1410,7 @@ function buildStickerHTML(forPrint) {
         // LEFT COL
         '<div class="sticker-left">' +
           '<div class="sticker-patient">' +
-            '<span class="lbl">ชื่อ-สกุล</span><span class="val">'+name+'</span>' +
+            '<span class="lbl">ชื่อ-สกุล</span><span class="val val-name'+(rawNameLen > 18 ? ' long' : '')+'">'+name.split(/\s+/).map(function(w){ return '<span class="nw">'+w+'</span>'; }).join(' ')+'</span>' +
             '<span class="lbl">HN</span><span class="val">'+hn+'</span>' +
             '<span class="lbl">พิมพ์</span><span class="val">'+dateTH+'</span>' +
           '</div>' +
