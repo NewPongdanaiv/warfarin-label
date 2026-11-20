@@ -1076,7 +1076,7 @@ function addDrugRow() {
         DRUG_COLORS.map(function(c){ return '<option value="'+c.id+'">'+c.label+'</option>'; }).join('') +
       '</select>' +
       '<select id="doseSel_'+id+'" onchange="updatePreview()" style="max-width:110px">' +
-        DOSES.map(function(d){ return '<option value="'+d.val+'">'+d.label+'</option>'; }).join('') +
+        DOSES.map(function(d){ return '<option value="'+d.val+'"'+(d.val==='1'?' selected':'')+'>'+d.label+'</option>'; }).join('') +
       '</select>' +
       '<button class="remove-btn" onclick="removeDrugRow(\''+id+'\')">✕</button>' +
     '</div>' +
